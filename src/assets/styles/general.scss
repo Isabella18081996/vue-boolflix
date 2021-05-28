@@ -1,14 +1,14 @@
 @import '~bootstrap/scss/bootstrap';
-@import '~@fontsource/roboto/index.css';
-*{
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Roboto' , sans-serif;
-}
+
+@import "~@fontsource/roboto/index.css";
+@import "~@fontsource/roboto/700.css";
+
+@import "./vars";
+
+
 body{
+  font-family: $main-fonts;
   background-color: black;
-}
-ul{
-  list-style: none;
+  color: aliceblue;
+
 }
