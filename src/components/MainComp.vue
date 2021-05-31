@@ -15,7 +15,7 @@
 <script>
 import Card from '@/components/Card';
 export default {
-  name: 'Main',
+  name: 'MainComp',
   components:{
     Card
   },
@@ -26,8 +26,8 @@ export default {
   data(){
     return{
       titles:{
-        'movie': 'Film trovati nel nostro catalogo',
-        'tv': 'Serie tv trovate nel nostro catalogo'
+        'movie': 'Film presenti nel nostro catalogo',
+        'tv': 'Serie tv presenti nel nostro catalogo'
       }
     }
   }

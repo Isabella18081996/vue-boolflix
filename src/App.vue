@@ -3,15 +3,17 @@
 
     <HeaderComp @startSearch="startSearch" />
 
-    <h2 v-if="results.movie.length === 0 && results.tv.length === 0">Nessun risultato trovato</h2>
-<!--     <div class="notfound deconstructed" v-if="results.movie.length === 0 && results.tv.length === 0">
+    
+    <!-- <h2 v-if="results.movie.length === 0 && results.tv.length === 0">Nessun risultato trovato</h2> -->
+    <div class="deconstructed" v-if="results.movie.length === 0 && results.tv.length === 0">
         NESSUN RISULTATO TROVATO
       <div>NESSUN RISULTATO TROVATO</div>
       <div>NESSUN RISULTATO TROVATO</div>
       <div>NESSUN RISULTATO TROVATO</div>
       <div>NESSUN RISULTATO TROVATO</div>
-    </div> -->
+    </div>
 
+    
     <MainComp v-if="results.movie.length > 0"  type='movie' :list="results.movie" />
     <MainComp v-if="results.tv.length > 0" type='tv' :list="results.tv"/>
 
@@ -81,19 +83,36 @@ export default {
       }
     }
   },
-  created(){}
+    created(){
+    
+      let type = 'movie'
+      axios.get('https://api.themoviedb.org/3/movie/popular',{
+          params:{
+            api_key: this.apiKey,
+            language: 'it-IT'
+          }
+        })
+        .then(res => {
+           this.results[type] = res.data.results;
+        })
+        .catch(err => {
+          console.log(err);
+        })
+    
+  }
 }
+
 </script>
 
 <style lang="scss">
 @import './assets/styles/general';
-/* @import './assets/styles/mixin.scss';
-.notfound{
-  @include messaggio();
-} */
-h2{
+@import './assets/styles/scrollText.scss';
+
+
+
+/* h2{
   text-align: center;
   padding-top: 20px;
-}
+} */
 
 </style>

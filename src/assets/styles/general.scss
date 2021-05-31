@@ -12,3 +12,37 @@ body{
   color: aliceblue;
 
 }
+
+p {
+  margin-top: -25px;
+  margin-bottom: 1rem;
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: red #444343;
+}
+/* Chrome, Edge, and Safari */
+*::-webkit-scrollbar {
+  width: 10px;
+}
+*::-webkit-scrollbar-track {
+  background: #252525;
+}
+*::-webkit-scrollbar-thumb {
+  background-color: red;
+  border-radius: 5px;
+  border: 1px solid black;
+}
+
+
+/* .not-found h4{
+  font-size: 20px;
+  padding-top: 30px;
+}
+
+.not-found h3{
+  font-size: 40px;
+  margin-top: 140px;
+  opacity: 0.4;
+} */

@@ -1,0 +1,151 @@
+.box-search{
+  position: relative;
+  margin-top:50px;
+
+   input{
+    position: relative;
+    border: 2px solid red;
+    height: 40px;
+    background: transparent;
+    width: 200px;
+    border-radius: 50px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 15px;
+    color: gray; 
+  }
+  input:focus{
+  outline: none;
+  }
+ 
+   
+
+  .icon-holder{
+    display: flex;
+    margin:10px 10px;
+  }
+
+
+  .icon{
+    position: relative;
+    height: 40px;
+    width: 40px;
+    background: red;
+    border-radius: 100%;
+    /* box-shadow: 0px 1px 2px; */
+    cursor: pointer;
+    opacity: 0;
+    transition: .4s;
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+  }
+    .icon:hover{
+    background: white;
+    color:red;
+    animation-play-state: paused;  
+    box-shadow: 0 0 30px rgba(209, 54, 54, 0.75);
+  }
+
+
+  .icon i{
+    color: white;
+    font-size: 18px;
+    padding: 8px;
+    /* text-align: center; */
+    /*  transform: translate(50%,-50%); */
+  }
+  .icon:hover i{
+  color: red;
+  }
+
+
+
+
+input:focus ~ .icon-holder > .icon{
+ animation: ani 2.2s ease-out infinite
+}
+ 
+ @keyframes ani{
+     0%{
+      opacity: 1 
+     }
+
+     
+   10%{
+          transform: scale(1.2);
+     opacity: 1
+   }
+
+   20%{
+          transform: scale(1);
+     opacity: 1
+   }
+
+   100%{
+     transform: scale(1);
+     opacity: 1 
+   }
+     
+ }
+
+ #tv{
+   animation-delay: .3s;
+   
+ }
+ 
+   
+#all{
+ animation-delay: .6s
+}
+ 
+
+.tooltip{
+  opacity: 0;
+ position: absolute;
+ font-size: 12px;
+ color: white;
+ background: #555;
+ padding: 8px;
+ top: 30px;
+ border-radius: 15%;
+ top: 45px ;
+}
+.tooltip:after{
+    content: '';
+   position: absolute;
+   background: #555;
+   clip-path: polygon(70% 0%, 0% 100%, 100% 100%);
+   height: 18px;
+   width: 18px;
+   top: -10px;
+   left: 7px ;
+}
+ 
+
+ 
+.icon:hover > .tooltip{
+ animation: ani .4s ease-out forwards;
+ animation-delay: .3s ;
+}
+
+span{
+ font-family: 'Squada One', cursive;
+ color:white;
+ font-weight: 700;
+ text-align: center;
+ margin-left: 16px;
+ font-size: 20px;
+}
+
+span:hover{
+ color: red;
+}
+}
+
+
+
+
+
