@@ -1,3 +1,5 @@
+/* importo i file necessari */
+
 @import '~bootstrap/scss/bootstrap';
 
 @import "~@fontsource/roboto/index.css";
@@ -10,14 +12,18 @@ body{
   font-family: $main-fonts;
   background-color: black;
   color: aliceblue;
-
 }
 
-p {
+p{
+  font-size: 13.5px;
   margin-top: -25px;
   margin-bottom: 1rem;
 }
 
+
+/* SCROLL BAR */
+
+/* Firefox */
 * {
   scrollbar-width: thin;
   scrollbar-color: red #444343;
@@ -46,3 +52,4 @@ p {
   margin-top: 140px;
   opacity: 0.4;
 } */
+

@@ -1,6 +1,7 @@
 <template>
   
   <main>
+    <!-- passo il tipo ti titolo e creo un ciclo for per generare la mia lista di carte -->
     <h1>{{ titles[type] }}</h1>
     <section class="d-flex flex-wrap justify-content-center">
       <Card

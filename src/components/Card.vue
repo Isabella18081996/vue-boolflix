@@ -1,20 +1,21 @@
 <template>
 
+<!-- creo un contenitore carta per il front e per il back -->
     <section class="carta">
       <div class="poster">
-        <!-- <img class="img-poster" :src=" 'http://image.tmdb.org/t/p/w342' + card.poster_path " :alt='card.overwiev'>  -->
-
+<!-- richiamo la foto corrispondente per metterla come copertina -->
         <img class="img-poster" v-if="card.poster_path !== null" :src="'https://image.tmdb.org/t/p/w342/'+card.poster_path" :alt="card.overview">
 
+<!-- lato della carta da mostrare nel caso non ci dovesse essere un'immagine di copertina disponibile  -->
       <div class="not-found" v-if="card.poster_path === null">
         <div class="testi">
           <h4><span>Titolo: </span>{{card.title || card.name}}</h4>
-          <h3>Not found cover</h3>
+          <h3>Cover not available</h3>
         </div>
         
       </div>
         
-
+<!-- sezione per le informazioni del film/serie tv -->
       <div class="info draw">
         <ul >
           <li><span>Titolo: </span>{{ card.title || card.name}}</li>
@@ -22,8 +23,10 @@
 
           <li v-if="flags.includes(card.original_language)">
             <span>Lingua: </span>
+            <!-- passo l'immagine corrisponente al flag con la bandiera giusta -->
             <img :src="require(`@/assets/img/${card.original_language}.png`)" :alt="card.original_language">
           </li>
+          <!-- se non ho la bandiera tra le mie immagini, allora viene mostrato solo il nome della lingua -->
           <li v-else><span>Lingua: </span>{{ card.original_language }}</li>
 
 
@@ -39,6 +42,7 @@
           <div>
             <span><strong>Voto: </strong></span>
 
+<!-- creo due contenitori, uno per le stelle piene e uno per le stelle vuote -->
             <div class="stars">
 
               <div class="empty">
@@ -53,6 +57,7 @@
                 </ul>
               </div>
 
+<!-- il contenitore delle stelle piene ha la larghezza/10* il voto delle stelle. In questo modo potrò avere le stelle mezze, 1/3 ecc -->
               <div class="solid" :style="`width:${19.9*card.vote_average}px`">
                 <ul class="inner stelle">
                   <li><i class="fas fa-star"></i></li>
@@ -69,7 +74,9 @@
 
           </div>
 
+<!-- creo il mio paragrafo con la descrizione -->
           <div class="paragrafo"><p><span>Descrizione: </span><br>{{card.overview}}</p></div>
+<!-- se non è presente nessuna descrizione nell'API -->
           <li v-if="card.overview === ''">
           <h6>Nessuna descrizione trovata</h6>
         </li>
@@ -93,18 +100,8 @@ export default {
   },
   data(){
     return{
+      /* creo delle flag da richiamare poi per mettere le immagini corrispondenti */
       flags:['en', 'it', 'es','fr','pt','de','ja'],
- /*      imgs:{
-        'en': 'en',
-        'it' : 'it',
-        'es' : 'es',
-        'fr' : 'fr',
-        'pt' : 'pt',
-        'de' : 'de',
-        'ja' : 'ja'
-
-
-      } */
     }
   },
   
@@ -121,72 +118,15 @@ export default {
   margin-top: 20px;
   padding: 5px;
 } */
-.star{
+
+/* .star{
   color: white;
-}
+} */
 
 
   
 
 
-  .stars{
-  position:relative;
-  width: 200px;
-  height: 25px;
-  line-height: 55px;
-  margin-bottom: 15px;
-
-  .empty, .solid{
-    position:absolute;
-    top: -70px;
-    left: 60px;
-    overflow: hidden;
-    border-radius: 20px; 
-  
-
- 
-
-  }
-  .inner{
-    width: 199px;
-  }
-
-  .stelle{
- /*     color: #FFFFFF;
- list-style: none;
- padding-top:30px ;
- margin-left: -15px; */
- margin-bottom: 15px;
-  }
-  li{
-    display: inline;   
-    
-  }
-  i{
-    font-size: 20px;
-    text-align: center;
-    padding-left: 5px;
-    padding-right: 5px;
-
-       color: #ff0;
-  
-
-  }
-  .solid li i{
-  text-shadow: rgb(236, 220, 127) 0 0 25px;
-  /* padding-right: 5px ; */
-/*       padding-left: 5px;
-    margin-right: 5px; */
-
-
-  }
-
-  .paragrafo .description{
-       font-size:5px;
-   color: white;
-   font-weight: 500;
-  }
-  }
 
 
 </style>

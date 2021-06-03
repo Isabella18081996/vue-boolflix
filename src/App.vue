@@ -5,6 +5,9 @@
 
     
     <!-- <h2 v-if="results.movie.length === 0 && results.tv.length === 0">Nessun risultato trovato</h2> -->
+
+
+    <!-- LOGO IN MOVIMENTO -->
     <div class="deconstructed" v-if="results.movie.length === 0 && results.tv.length === 0">
         NESSUN RISULTATO TROVATO
       <div>NESSUN RISULTATO TROVATO</div>
@@ -23,6 +26,7 @@
 </template>
 
 <script>
+/* importo i vari componenti */
 import HeaderComp from './components/HeaderComp';
 import MainComp from './components/MainComp';
 import LoaderComp from './components/MainComp';
@@ -35,17 +39,18 @@ export default {
     MainComp,
     LoaderComp
   },
+  /* Richiamo l'API esterno e definisco cosa mi deve mostrare */
   data(){
     return{
       apiUrl: 'https://api.themoviedb.org/3/search/',
       apiKey: 'e9c3e699c20e864258f32138e6f6d820',
-      loading:true,
       results:{
         'movie':[],
         'tv':[]
       }
     }
   },
+  /* creo la funzione per fare la ricerca nell'input di movie, serie tv e tutto */
   methods:{
     startSearch(obj){
       this.resetResults();
@@ -83,7 +88,9 @@ export default {
       }
     }
   },
-    created(){
+
+  /* Creo nella schermata iniziale la lista dei film più popolari per evitare che ci sia lo spazio vuoto dato dagli array vuoti di movie e serie tv */
+  created(){
     
       let type = 'movie'
       axios.get('https://api.themoviedb.org/3/movie/popular',{
@@ -105,6 +112,7 @@ export default {
 </script>
 
 <style lang="scss">
+/* importo i file scss generale e del testo che appare quando gli array sono vuoti */
 @import './assets/styles/general';
 @import './assets/styles/scrollText.scss';
 
